@@ -1,0 +1,16 @@
+{
+  "name": "prestamos-hipoteca-pereira",
+  "version": "1.0.0",
+  "description": "Landing page de préstamos hipotecarios — Pereira y Dosquebradas",
+  "main": "index.html",
+  "scripts": {
+    "start": "npx serve . -p 3000",
+    "dev": "npx live-server --port=3000 --open=index.html",
+    "build": "echo 'HTML/CSS/JS puro — no requiere build step'",
+    "validate": "npx html-validate index.html"
+  },
+  "keywords": ["landing", "prestamos", "hipoteca", "pereira", "colombia"],
+  "author": "",
+  "license": "UNLICENSED",
+  "private": true
+}
