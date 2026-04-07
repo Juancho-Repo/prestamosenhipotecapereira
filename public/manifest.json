@@ -1,0 +1,22 @@
+{
+  "name": "Préstamos en Hipoteca Pereira y Dosquebradas",
+  "short_name": "Hipoteca Pereira",
+  "description": "Préstamos hipotecarios en Pereira y Dosquebradas. Aprobación rápida, sin codeudor, desde 2% mensual.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0d1f3c",
+  "theme_color": "#c9a84c",
+  "lang": "es",
+  "icons": [
+    {
+      "src": "/public/favicon-32x32.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    },
+    {
+      "src": "/public/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
+  ]
+}
