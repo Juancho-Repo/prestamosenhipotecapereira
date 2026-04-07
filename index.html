@@ -28,16 +28,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 })(window,document,'script','dataLayer','GTM-5N99PSLL');</script>
 <!-- End Google Tag Manager -->
 
-  <!-- ═══ Microsoft Clarity ═══ -->
-<script type="text/javascript">
-    (function(c,l,a,r,i,t,y){
-        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-    })(window, document, "clarity", "script", "w71erpsc6a");
-</script>
-  <!-- ═══ Microsoft Clarity ═══ -->
-
 <!-- ═══ Google Analytics 4 + Google Ads ═══
      CORRECCION: gtag() se declara UNA SOLA VEZ.
      Declarar la funcion dos veces hace que la segunda
@@ -831,19 +821,43 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </div>
 <script>
   /* ── Aviso de cookies ──────────────────────────────────────────
-     Oculta el banner al hacer clic en Aceptar.
-     Flag en memoria (variable JS), sin localStorage ni cookies propias.
-     El banner vuelve a aparecer en cada sesion nueva, que es el
-     comportamiento correcto para cumplir con la Ley 1581.
+     Al aceptar: oculta el banner Y baja el boton de WhatsApp
+     a su posicion original (bottom: 1.5rem).
+     Mientras el banner este visible: el boton sube automaticamente
+     para no quedar tapado. La altura del banner se calcula en tiempo
+     real con getBoundingClientRect() para que funcione en cualquier
+     tamano de pantalla.
   ─────────────────────────────────────────────────────────────── */
+  function ajustarWhatsApp() {
+    var banner = document.getElementById('cookieBanner');
+    var waWrapper = document.querySelector('.wa-wrapper');
+    if (!waWrapper) return;
+    if (banner && banner.style.display !== 'none') {
+      /* Banner visible: subir el boton la altura exacta del banner */
+      var altura = banner.getBoundingClientRect().height;
+      waWrapper.style.bottom = (altura + 12) + 'px';
+    } else {
+      /* Banner oculto: volver a la posicion original */
+      waWrapper.style.bottom = '1.5rem';
+    }
+  }
+
+/* Ejecutar cuando el DOM este completamente cargado.
+     Sin DOMContentLoaded, el script se ejecuta antes de que
+     el elemento .wa-wrapper exista en el HTML y querySelector
+     devuelve null. */
+  document.addEventListener('DOMContentLoaded', ajustarWhatsApp);
+
+  /* Reajustar si cambia el tamano de pantalla (orientacion, zoom) */
+  window.addEventListener('resize', ajustarWhatsApp);
+
+  /* Al aceptar: ocultar banner y bajar el boton */
   document.getElementById('btnAceptarCookies').addEventListener('click', function() {
     document.getElementById('cookieBanner').style.display = 'none';
+    ajustarWhatsApp();
   });
 
-  /* ── Cerrar modal de privacidad al hacer clic fuera del contenido ──
-     Permite cerrar el modal tocando el fondo oscuro,
-     comportamiento esperado por el usuario en movil y desktop.
-  ─────────────────────────────────────────────────────────────── */
+  /* ── Cerrar modal de privacidad al hacer clic fuera del contenido ── */
   document.getElementById('modalPrivacidad').addEventListener('click', function(e) {
     if (e.target === this) this.style.display = 'none';
   });
@@ -855,7 +869,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
      Lógica en: src/utils/main.js → módulo 10 (POPUP WHATSAPP)
      Config en: src/config/site.js → whatsappNumber, whatsappMessage
      ══════════════════════════════════════════ -->
-<div class="wa-wrapper">
+<div class="wa-wrapper" style="transition: bottom 0.3s cubic-bezier(0.23, 1, 0.32, 1);">
   <!-- Popup de oferta — aparece automáticamente a los 10s -->
   <div class="wa-popup" id="waPopup" role="dialog" aria-label="Oferta especial WhatsApp">
     <button class="wa-popup-close" id="waClose" aria-label="Cerrar">✕</button>
@@ -885,6 +899,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
      Cargado al final del body para no bloquear el render.
 -->
 <script src="src/utils/main.js"></script>
-
+  <!-- ═══ Microsoft Clarity ═══ -->
+<script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "w71erpsc6a");
+</script>
+  <!-- ═══ Microsoft Clarity ═══ -->
 </body>
 </html>
