@@ -902,7 +902,34 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </svg>
   </button>
 </div>
+<!-- ══════════════════════════════════════════
+     TRACKING WHATSAPP — Google Analytics 4 + Google Ads
+     Registra cada clic al WhatsApp como evento "click_whatsapp".
+     El event_label identifica desde qué botón vino el usuario.
+     ══════════════════════════════════════════ -->
+<script>
+document.addEventListener('DOMContentLoaded', function () {
 
+  var botonesWA = [
+    { selector: '.nav-cta[href*="wa.me"]',         label: 'nav_solicitar_ahora'     },
+    { selector: '.hero-btns a[href*="wa.me"]',      label: 'hero_solicitar_whatsapp' },
+   	{ selector: 'a.btn-primary[href*="wa.me"]:not(.nav-cta)',  label: 'promo_sin_comision' },
+    { selector: '#waCtaBtn',                        label: 'popup_flotante'          },
+  ];
+
+  botonesWA.forEach(function(btn) {
+    var el = document.querySelector(btn.selector);
+    if (!el) return;
+    el.addEventListener('click', function () {
+      gtag('event', 'click_whatsapp', {
+        event_category: 'contacto',
+        event_label:    btn.label
+      });
+    });
+  });
+
+});
+</script>
 <!-- ═══ SCRIPTS ═══
      📁 src/utils/main.js — Toda la lógica JS
      Cargado al final del body para no bloquear el render.
