@@ -1,0 +1,39 @@
+# robots.txt — Instrucciones para motores de busqueda
+# ─────────────────────────────────────────────────────
+# Dominio: https://prestamosenhipotecapereira.vercel.app
+# Generado: 2026-04-07
+#
+# DONDE INSTALAR:
+#   Colocar este archivo en la RAIZ del proyecto, al mismo
+#   nivel que index.html. NO dentro de /public/.
+#
+#   Estructura correcta:
+#     landing/
+#       index.html
+#       sitemap.xml        <- ya instalado
+#       robots.txt         <- aqui
+#       public/
+#       src/
+#
+# EN VERCEL:
+#   Sera accesible en:
+#   https://prestamosenhipotecapereira.vercel.app/robots.txt
+#
+# NOTA — Si en el futuro cambias a dominio propio:
+#   Reemplazar la URL del Sitemap por tu nuevo dominio.
+# ─────────────────────────────────────────────────────
+
+# Permitir acceso a todos los crawlers (Google, Bing, etc.)
+User-agent: *
+Allow: /
+
+# Bloquear acceso a archivos de configuracion y entorno
+Disallow: /.env
+Disallow: /.env.local
+Disallow: /.env.example
+Disallow: /node_modules/
+Disallow: /src/config/
+Disallow: /scripts/
+
+# Ruta del sitemap — actualizar si cambias de dominio
+Sitemap: https://prestamosenhipotecapereira.vercel.app/sitemap.xml

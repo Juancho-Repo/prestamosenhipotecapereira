@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  sitemap.xml — Mapa del sitio para motores de búsqueda
+  ───────────────────────────────────────────────────────
+  Dominio: https://prestamosenhipotecapereira.vercel.app
+  Generado: 2026-04-07
+
+  DONDE INSTALAR:
+    Colocar este archivo en la RAIZ del proyecto, al mismo
+    nivel que index.html. NO dentro de /public/.
+
+    Estructura correcta:
+      landing/
+        index.html
+        sitemap.xml        ← aqui
+        robots.txt         ← aqui
+        public/
+        src/
+
+  EN VERCEL:
+    Vercel sirve automaticamente los archivos que estan
+    en la raiz del proyecto. Si el archivo esta en la raiz,
+    sera accesible en:
+    https://prestamosenhipotecapereira.vercel.app/sitemap.xml
+
+  NOTA — Si en el futuro cambias a dominio propio:
+    Reemplazar todas las ocurrencias de:
+      https://prestamosenhipotecapereira.vercel.app
+    por tu nuevo dominio antes de hacer deploy.
+-->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+        http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+
+  <!-- Pagina principal -->
+  <url>
+    <loc>https://prestamosenhipotecapereira.vercel.app/</loc>
+    <lastmod>2026-04-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- Secciones internas — anclas de la pagina principal -->
+  <!-- Google las indexa como parte de la URL principal,
+       pero incluirlas ayuda a entender la estructura del contenido -->
+
+  <url>
+    <loc>https://prestamosenhipotecapereira.vercel.app/#ventajas</loc>
+    <lastmod>2026-04-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://prestamosenhipotecapereira.vercel.app/#calculadora</loc>
+    <lastmod>2026-04-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://prestamosenhipotecapereira.vercel.app/#requisitos</loc>
+    <lastmod>2026-04-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://prestamosenhipotecapereira.vercel.app/#testimonios</loc>
+    <lastmod>2026-04-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://prestamosenhipotecapereira.vercel.app/#faq</loc>
+    <lastmod>2026-04-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+</urlset>
